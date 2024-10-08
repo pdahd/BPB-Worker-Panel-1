@@ -1480,11 +1480,10 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 --table-active-color: #303030;
                 --hr-text-color: #D5D5D5;
                 --lable-text-color: #DFDFDF;
-                --border-color: #333333;
+                --border-color: #00A86B;
                 --button-color: #3498DB;
                 --input-background-color: #3C3C3C;
                 --header-shadow: 2px 2px 4px rgba(255, 255, 255, 0.25);
-                hr { border-color: #00A86B; }
 	    }
             .material-symbols-outlined {
                 margin-left: 5px;
