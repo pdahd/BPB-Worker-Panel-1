@@ -286,8 +286,8 @@ export default {
                         });
 
                     default:
-                        // return new Response('Not found', { status: 404 });
-                        url.hostname = 'www.speedtest.net';
+                        const redirectHostname = env.REDIRECT_HOSTNAME || 'www.speedtest.net'; // 如果未设置变量则回退
+                        url.hostname = redirectHostname;
                         url.protocol = 'https:';
                         request = new Request(url, request);
                         return await fetch(request);
