@@ -1475,14 +1475,14 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 --primary-color: #09639F;
                 --secondary-color: #3498DB;
                 --header-color: #3498DB; 
-                --background-color: #CDB280;
-                --form-background-color: #C0C0C0;
+                --background-color: #00563B;
+                --form-background-color: #004225;
                 --table-active-color: #303030;
                 --hr-text-color: #D5D5D5;
                 --lable-text-color: #DFDFDF;
-                --border-color: #F7E7CE;
-                --button-color: #3498DB;
-                --input-background-color: #FBCEB1;
+                --border-color: white;
+                --button-color: #09639f;
+                --input-background-color: #00693E;
                 --header-shadow: 2px 2px 4px rgba(255, 255, 255, 0.25);
 	    }
             .material-symbols-outlined {
