@@ -1475,7 +1475,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 --primary-color: #09639F;
                 --secondary-color: #3498DB;
                 --header-color: #3498DB; 
-                --background-color: #5D8AA8;
+                --background-color: #333333;
                 --form-background-color: #003153;
                 --table-active-color: #303030;
                 --hr-text-color: #D5D5D5;
