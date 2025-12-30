@@ -309,7 +309,7 @@ async function vlessOverWSHandler(request) {
     let address = "";
     let portWithRandomLog = "";
     const log = (/** @type {string} */ info, /** @type {string | undefined} */ event) => {
-        console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
+        // console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
     };
     const earlyDataHeader = request.headers.get("sec-websocket-protocol") || "";
 
@@ -434,7 +434,7 @@ async function trojanOverWSHandler(request) {
     let address = "";
     let portWithRandomLog = "";
     const log = (info, event) => {
-        console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
+        // console.log(`[${address}:${portWithRandomLog}] ${info}`, event || "");
     };
     const earlyDataHeader = request.headers.get("sec-websocket-protocol") || "";
     const readableWebSocketStream = makeReadableWebSocketStream(webSocket, earlyDataHeader, log);
@@ -1351,15 +1351,12 @@ async function Authenticate (request, env) {
         const token = cookie ? cookie[2] : null;
 
         if (!token) {
-            console.log('Unauthorized: Token not available!');
             return false;
         }
 
         const { payload } = await jwtVerify(token, secret);
-        console.log(`Successfully logined, User ID: ${payload.userID}`);
         return true;
     } catch (error) {
-        console.log(error);
         return false;
     }
 }
