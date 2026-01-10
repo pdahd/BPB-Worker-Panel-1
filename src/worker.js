@@ -408,25 +408,6 @@ async function vlessOverWSHandler(request) {
 
 /**
  * Checks if a given UUID is present in the API response.
- * @param {string} targetUuid The UUID to search for.
- * @returns {Promise<boolean>} A Promise that resolves to true if the UUID is present in the API response, false otherwise.
- */
-async function checkUuidInApiResponse(targetUuid) {
-    // Check if any of the environment variables are empty
-  
-    try {
-        const apiResponse = await getApiResponse();
-        if (!apiResponse) {
-            return false;
-        }
-        const isUuidInResponse = apiResponse.users.some((user) => user.uuid === targetUuid);
-        return isUuidInResponse;
-    } catch (error) {
-        console.error("Error:", error);
-        return false;
-    }
-}
-
 async function trojanOverWSHandler(request) {
     const webSocketPair = new WebSocketPair();
     const [client, webSocket] = Object.values(webSocketPair);
@@ -749,10 +730,9 @@ async function processVlessHeader(vlessBuffer, userID) {
 
     const uuids = userID.includes(",") ? userID.split(",") : [userID];
 
-    const checkUuidInApi = await checkUuidInApiResponse(slicedBufferString);
-    isValidUser = uuids.some((userUuid) => checkUuidInApi || slicedBufferString === userUuid.trim());
+    isValidUser = uuids.some((userUuid) => slicedBufferString === userUuid.trim());
 
-    console.log(`checkUuidInApi: ${await checkUuidInApiResponse(slicedBufferString)}, userID: ${slicedBufferString}`);
+    console.log(`userID: ${slicedBufferString}`);
 
     if (!isValidUser) {
         return {
